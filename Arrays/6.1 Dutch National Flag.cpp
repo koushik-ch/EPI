@@ -2,6 +2,27 @@
 
 using namespace std;
 
+/*
+    The quicksort algorithmforsorting arrays proceedsrecursively—itselects an element
+    (the "pivot"),reordersthe array to make all the elementslessthan or equal to the pivot
+    appear first, followed by all the elements greater than the pivot. The two subarrays
+    are then sorted recursively.
+    Implemented naively, quicksort haslarge run times and deep function call stacks
+    on arrays with many duplicates because the subarrays may differ greatly in size. One
+    solution is to reorder the array so that all elements less than the pivot appear first,
+    followed by elements equal to the pivot,followed by elements greater than the pivot.
+    This is known as Dutch national flag partitioning, because the Dutch national flag
+    consists of three horizontal bands, each in a different color.
+    As an example, assuming that black precedes white and white precedes gray,
+    Figure 6.1(b) on the facing page is a valid partitioning for Figure 6.1(a) on the next
+    page. If gray precedes black and black precedes white, Figure 6.1(c) on the facing
+    page is a valid partitioning for Figure 6.1(a) on the next page.
+    Generalizing,suppose A = (0,l,2,0,2,l,l),andthepivotindexis3. Then A[3] = 0,
+    so (0,0,1, 2, 2,1,1) is a valid partitioning. For the same array, if the pivot index is 2,
+    then A[2] = 2, so the arrays(0,1,0,1,1, 2, 2) as well as langle0,0,1,1,1, 2, 2) are valid
+    partitionings.
+
+*/
 void brute(vector<int> &nums, int pivot)
 {
     // TC->O(n^2)
@@ -108,6 +129,15 @@ void optimal(vector<int> &nums, int pivot)
 
 /* Variants:
 
+    Given an array A of n objects with keys that takes one of four values, reorder
+    the arrayso that allobjectsthat have the same key appear together. Use0(1)additional
+    space and 0(n) time.
+
+    Soln: We can use the same idea as in the optimal solution. We do the the operation twice,
+    first to sort the elements based on the 2nd largest element and then based on the 3rd
+    ie, {0,2,1,2,0,3,3,1,3,2}
+        1)Arrange with '1' as the pivot -> {0 0 1 1 3 3 2 3 2 2}
+        2)Now arrange with '2' as the pivot -> { 0 0 1 1 2 2 2 3 3 3}
 
 */
 
